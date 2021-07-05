@@ -31,13 +31,14 @@ Reactive Programming을 한 줄로 설명하면 다음과 같습니다.
 
 설명하기에 앞써 비동기를 사용하는 가장 큰 이유는 **속도**입니다. 
 
-![Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled.png](https://github.com/choiseonjae/choiseonjae.github.io/blob/master/assets/reactive%20programming/naver%20example.png?raw=true)
+![Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled%201.png](https://github.com/choiseonjae/choiseonjae.github.io/blob/master/assets/reactive%20programming/synchronouse%20vs%20asynchronous.png?raw=true)
+
 
 # 실시간화
 
 개발자 입장에서는 비동기적인 데이터 처리라고 볼 수 있었습니다. 사용자 입장에서 살펴보면, Reactive Programming이란 **실시간으로 반응을 하는 프로그래밍**을 말합니다. 예를 들면, 네이버 검색창에 단어를 하나씩 입력하는 그 순간에 관련 검색어들이 자동 완성으로 바로바로 제시되는 것이나, 페이스북 글을 보고 있을 때 다른 사람이 '좋아요' 버튼을 누르면 새로고침이 없어도 실시간으로 좋아요 수가 올라가는 것을 말합니다.
 
-![Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled%201.png](https://github.com/choiseonjae/choiseonjae.github.io/blob/master/assets/reactive%20programming/synchronouse%20vs%20asynchronous.png?raw=true)
+![Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled.png](https://github.com/choiseonjae/choiseonjae.github.io/blob/master/assets/reactive%20programming/naver%20example.png?raw=true)
 
 # Asynchronous와 Observer
 
@@ -80,5 +81,5 @@ Main Thread에서 Thread가 나와서 비동기 처리를 할 때, 비동기 처
 - [Callback 함수](https://velog.io/@hyksmine/call-back..-i4k1xple94)
 - [콜백(Callback) 패턴을 사용한 비동기 방식의 원리와 사용법](https://codevang.tistory.com/187)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MzIzODM2NF19
+eyJoaXN0b3J5IjpbLTE2MTU2NjQxOTBdfQ==
 -->
