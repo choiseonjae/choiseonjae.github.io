@@ -1,12 +1,25 @@
 ---
 title: \[Reative Programming] Reactive Programming란? Reactive Programming 간단하게 정리하기
 
-categories: Re
+categories: reactive programming
    
 tags:
-   - 
+   - reactive programming
+   - reactive
+   - callback
+   - observer
+   - observer design pattern
+   - observer pattern
+   - observation
+   - observe
+   - 리엑티브
+   - 리엑티브 프로그래밍
+   - 콜백
+   - 옵저버
+   - 옵저버 디자인 패턴
+   - 옵저버 패턴
 
-last_modified_at: 2021-06-03 
+last_modified_at: 2021-0-03 
 
 ---
 
@@ -69,5 +82,5 @@ Main Thread에서 Thread가 나와서 비동기 처리를 할 때, 비동기 처
 - [Callback 함수](https://velog.io/@hyksmine/call-back..-i4k1xple94)
 - [콜백(Callback) 패턴을 사용한 비동기 방식의 원리와 사용법](https://codevang.tistory.com/187)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NDc2MDYzOF19
+eyJoaXN0b3J5IjpbNzYzODg0NTU3XX0=
 -->
