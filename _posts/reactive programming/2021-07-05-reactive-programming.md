@@ -72,7 +72,7 @@ test(function(value){
 
 Main Thread에서 Thread가 나와서 비동기 처리를 할 때, 비동기 처리를 하고 완료 된 뒤 Main Thread에서 받아서 일을 진행한다고 하지만 사실상 코드상에서 중간에 어떻게 처리를 할 수가 없습니다. callback 함수를 통해서 Main Thread의 함수를 넣어줘서 별도의 Thread에서 얻은 결과값을 이어서 처리할 수 있는 것입니다.
 
-![Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled%202.png](Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled%202.png)
+![Reactive%20Programming%E1%84%85%E1%85%A1%E1%86%AB%20Reactive%20Programming%20%E1%84%80%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2068ea60523b354987bece35b05a2ec385/Untitled%202.png](https://github.com/choiseonjae/choiseonjae.github.io/blob/master/assets/reactive%20programming/Main%20Thread%20example.png?raw=true)
 
 보통 위 이미지 처럼 표현이되어 비동기 처리 후 알람 받으면 Main Thread가 그 처리에 대한 작업을 하는 것처럼 표현합니다. 하지만, 사실상 Main Thread가 알림을 받고 다시 처리를 하기는 어렵습니다. 코드상으로는 Main Thread의 함수를 Callback으로 넘겨줘서 별도의 Thread에서 자신의 작업을 한 뒤 Main Thread에서 받은 함수로 작업하는 것을 Main Thread에 알려준다. 라고 표현하는 걸로 보입니다.
 
@@ -82,5 +82,5 @@ Main Thread에서 Thread가 나와서 비동기 처리를 할 때, 비동기 처
 - [Callback 함수](https://velog.io/@hyksmine/call-back..-i4k1xple94)
 - [콜백(Callback) 패턴을 사용한 비동기 방식의 원리와 사용법](https://codevang.tistory.com/187)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDU1NTIyNzBdfQ==
+eyJoaXN0b3J5IjpbLTUzNDQ4NTM5MV19
 -->
