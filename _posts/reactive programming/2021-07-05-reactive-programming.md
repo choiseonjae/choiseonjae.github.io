@@ -23,7 +23,6 @@ tags:
 last_modified_at: 2021-07-05 
 
 ---
-
 Reactive Programming을 한 줄로 설명하면 다음과 같습니다. 
 > Reactive programming is programming with asynchronous data streams.
 
@@ -81,6 +80,6 @@ Main Thread에서 Thread가 나와서 비동기 처리를 할 때, 비동기 처
 - [Callback 함수](https://velog.io/@hyksmine/call-back..-i4k1xple94)
 - [콜백(Callback) 패턴을 사용한 비동기 방식의 원리와 사용법](https://codevang.tistory.com/187)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMTY0NTYxNSwtMTU5NjEwNzAxNSwtMT
-YxNTY2NDE5MF19
+eyJoaXN0b3J5IjpbOTAwODQyNTYxLC0xNTk2MTA3MDE1LC0xNj
+E1NjY0MTkwXX0=
 -->
