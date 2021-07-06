@@ -1,6 +1,10 @@
 ---
 title: \[Reative Programming] Reactive Programming란? Reactive Programming 간단하게 정리하기
 
+
+header.teaser : https://github.com/choiseonjae/choiseonjae.github.io/blob/master/assets/reactive%20programming/synchronouse%20vs%20asynchronous.png?raw=true
+
+
 categories: 
    - reactive programming
    
@@ -80,6 +84,6 @@ Main Thread에서 Thread가 나와서 비동기 처리를 할 때, 비동기 처
 - [Callback 함수](https://velog.io/@hyksmine/call-back..-i4k1xple94)
 - [콜백(Callback) 패턴을 사용한 비동기 방식의 원리와 사용법](https://codevang.tistory.com/187)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjM0ODA3MDksOTAwODQyNTYxLC0xNT
-k2MTA3MDE1LC0xNjE1NjY0MTkwXX0=
+eyJoaXN0b3J5IjpbMTQ4MDMyNjEwMiwtMTM2MzQ4MDcwOSw5MD
+A4NDI1NjEsLTE1OTYxMDcwMTUsLTE2MTU2NjQxOTBdfQ==
 -->
