@@ -1,6 +1,9 @@
 ---
 title: \[Kotlin] ObjectMapper enum의 name이 아닌 원하는 값으로 enum to json / json to enum 하기
 
+header:
+  teaser: https://blog.kakaocdn.net/dn/QuUpe/btqVtbTN554/MJy6uWau3npcTGu9PjezS1/img.png
+
 categories: kotlin
 
 tags:
