@@ -1,5 +1,5 @@
 ---
-title: \[Kotlin] ObjectMapper enum의 name이 아닌 원하는 값으로 readValue / writeValue (transform) 하기
+title: \[Kotlin] ObjectMapper enum의 name이 아닌 원하는 값으로 enum to json / json to enum 하기
 
 categories: kotlin
 
