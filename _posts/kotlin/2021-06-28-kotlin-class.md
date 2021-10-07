@@ -1,6 +1,9 @@
 ---
 title: \[Kotlin] 코틀린 Class 간단하게 이해하기
 
+header:
+  teaser: https://blog.kakaocdn.net/dn/QuUpe/btqVtbTN554/MJy6uWau3npcTGu9PjezS1/img.png
+
 categories: kotlin
 
 tags:
