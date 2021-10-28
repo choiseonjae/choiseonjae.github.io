@@ -27,7 +27,7 @@ web context 안에서 동작한다.
 
 spring context가 아닌 톰캣과 같은 웹 컨테이너에 의해 관리된다.
 
-![](https://ap-northeast-2-02810029-view.menlosecurity.com/c/i/aHR0cHM6Ly9pbWcxLmRhdW1jZG4ubmV0L3RodW1iL1IxMjgweDAvP3Njb2RlPW10aXN0b3J5MiZmbmFtZT1odHRwcyUzQSUyRiUyRmJsb2cua2FrYW9jZG4ubmV0JTJGZG4lMkZiWlF4OUslMkZidHE5ekVCc0o3NSUyRmRFQUtqMUhFeW1jS3laR1pOT2lBODAlMkZpbWcucG5n)
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbZQx9K%2Fbtq9zEBsJ75%2FdEAKj1HEymcKyZGZNOiA80%2Fimg.png)
 
 # Interceptor
 
@@ -37,7 +37,7 @@ Dispatcher Servlet이 적절한 Controller에게 요청하기 위해 Handler Map
 
 HandlerExceptionChain(실행체인)은 1개 이상의 Interceptor가 등록되어 있으면 순차적으로 실행 후에 Controller를 수행한다.
 
-![](https://ap-northeast-2-02810029-view.menlosecurity.com/c/i/aHR0cHM6Ly9pbWcxLmRhdW1jZG4ubmV0L3RodW1iL1IxMjgweDAvP3Njb2RlPW10aXN0b3J5MiZmbmFtZT1odHRwcyUzQSUyRiUyRmJsb2cua2FrYW9jZG4ubmV0JTJGZG4lMkZTejZEViUyRmJ0cTl6alJwVUd2JTJGNjhGdzRmWnREd2FOQ1ppQ0Z4NTdvSyUyRmltZy5wbmc~)
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FSz6DV%2Fbtq9zjRpUGv%2F68Fw4fZtDwaNCZiCFx57oK%2Fimg.png)
 
 # AOP
 
@@ -49,7 +49,7 @@ HandlerExceptionChain(실행체인)은 1개 이상의 Interceptor가 등록되�
 
 또한, Filter와 Interceptor는 url 패턴으로 구분되어 대상을 타겟한다면 AOP는 url 패턴, 파라미터, 어노테이션 등 다양한 방법으로 대상을 타겟한다.
 
-![](https://ap-northeast-2-02810029-view.menlosecurity.com/c/i/aHR0cHM6Ly9pbWcxLmRhdW1jZG4ubmV0L3RodW1iL1IxMjgweDAvP3Njb2RlPW10aXN0b3J5MiZmbmFtZT1odHRwcyUzQSUyRiUyRmJsb2cua2FrYW9jZG4ubmV0JTJGZG4lMkYxYkVoYiUyRmJ0cUg4Y1JxMHNZJTJGZFFWa0Y3cGJyZE9UVm5JTFc3Ym16SyUyRmltZy5wbmc~)
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F1bEhb%2FbtqH8cRq0sY%2FdQVkF7pbrdOTVnILW7bmzK%2Fimg.png)
 
 
 # 차이점과 용도
