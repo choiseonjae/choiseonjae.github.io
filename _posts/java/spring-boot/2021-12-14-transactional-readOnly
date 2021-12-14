@@ -1,6 +1,6 @@
 ---
-title: \[Spring Boot\] Transactional(readOnly = true)
-permalink: /java/spring-boot
+title: \[Spring Boot\] Transactional(readOnly  true)
+permalink: /java/spring-boot/transactional/readOnly
 
 categories: 
    - 스프링 부트
