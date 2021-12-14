@@ -1,6 +1,6 @@
 ---
 title: \[Spring Boot\] Filter vs Interceptor vs AOP 의 차이 초간단 정리
-permalink: /java/spring-boot/error
+permalink: /java/spring-boot/fileter-interceptor-aop
 
 categories: 
    - 스프링 부트
