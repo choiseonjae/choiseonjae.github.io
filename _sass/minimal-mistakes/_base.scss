@@ -14,7 +14,7 @@ body {
   color: $text-color;
   font-family: $global-font-family;
   line-height: 1.5;
-  
+
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
     overflow: hidden;
@@ -108,7 +108,7 @@ abbr[data-original-title] {
 /* blockquotes */
 
 /* 변경 전 인용문 */
-/* blockquote {
+ blockquote {
    margin: 2em 1em 2em 0;
    padding-left: 1em;
    padding-right: 1em;
@@ -124,21 +124,20 @@ abbr[data-original-title] {
      }
    }
  }
-*/
 /* 변경한 인용문 */
-blockquote {
-    background: url("https://user-images.githubusercontent.com/49507736/77596210-b7c4b980-6f3e-11ea-9581-af21a2719c40.gif") no-repeat scroll 10px 13px #fff;
-    border: 1px dashed #ccc;
-    clear: both;
-    font-style: italic;
-    margin: 15px 0;
-    padding: 15px 15px 15px 50px;
-}
+//blockquote {
+//    //background: url("https://user-images.githubusercontent.com/49507736/77596210-b7c4b980-6f3e-11ea-9581-af21a2719c40.gif") no-repeat scroll 10px 13px #fff;
+//    border: 1px dashed #ccc;
+//    clear: both;
+//    font-style: italic;
+//    margin: 15px 0;
+//    padding: 15px 15px 15px 50px;
+//}
 blockquote p {
     margin-bottom: 5px;
 }
 blockquote cite {
-//     color: #a1a1a1;
+    color: #a1a1a1;
     display: block;
     font-size: 13px;
 }
@@ -146,10 +145,10 @@ blockquote cite {
 /* links */
 
 a {
-  
+
   // 하이퍼링크의 밑줄 제거
   text-decoration: none;
-  
+
   &:focus {
     @extend %tab-focus;
   }
