@@ -1,5 +1,5 @@
 <figure>
-  <div class="notice--info">
+  <div class="notice--success">
     <span style="background-color:yellow">
       <b>{{ include.title }}</b>
     </span>
