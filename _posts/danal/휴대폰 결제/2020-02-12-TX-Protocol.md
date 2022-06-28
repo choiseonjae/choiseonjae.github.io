@@ -1,6 +1,6 @@
 ---
 title: \[다날-과제] 가맹점(CP) - 다날(TX 서버-TUNA)간 휴대폰 결제 비즈니스 로직 개발
-categories: [Danal, TUNA]
+categories: danal
 tags:
    - TX(TUNA)
    - 휴대폰 결제

@@ -2,13 +2,11 @@
 title: \[Spring Boot\] 스프링 부트가 실행 될 때, 자동으로 데이터 삽입하기 + 데이터 삽입 안되는 오류 해결 (initialize database load 오류)
 
 categories: 
-   - 스프링 부트
+   - spring boot
   
 tags:
-   - 스프링 부트
    - database
    - spring boot
-   - 데이터 베이스
    - sql
    - database load error
    

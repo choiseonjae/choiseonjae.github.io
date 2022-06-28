@@ -1,23 +1,16 @@
 ---
-title: \[MSSQL] JDBC 로 SP(StoredProcedue) 호출 시 발생하는 에러 해결 방법
+title: \[JAVA] JDBC 로 SP(StoredProcedue) 호출 시 발생하는 에러 해결 방법
 permalink:  /danal/lg-pay/stored-procedure/error
 categories: 
    - java
-   - lg-pay
-   - mssql
-   - jdbc
-   - stored-procedure
-   - error
 
 tags:
-   - lg-pay
    - error
    - stored-procedure
    - procedure
    - sp
    - mssql
    - java
-   - mssql
 
 last_modified_at: 2020-06-09  9:25:59.77 
 

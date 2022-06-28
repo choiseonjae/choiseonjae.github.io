@@ -2,8 +2,7 @@
 title: \[MySQL] Stored Procedure 확인 및 수정
 
 categories: 
-   - Mysql
-   - Command
+   - mysql
 tags:
    - mysql
    - procedure
