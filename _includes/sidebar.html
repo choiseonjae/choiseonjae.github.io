@@ -31,5 +31,19 @@
       </style>
       <img class="hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fchoiseonjae.github.io&count_bg=%23B6B5B0&title_bg=%2348454B&icon=checkmarx.svg&icon_color=%23E7E7E7&title=방문수&edge_flat=false"/>
     </a>
+
+    <div>
+      <div class="sidebar-nav-item">Category</div>
+      <nav class="content-ul">
+        {% for category in site.categories %}
+        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}"
+           class="sidebar-nav-item pl-3rem">
+          <span class="name">{{ category | first }}</span>
+          <span class="badge"> ({{ category | last | size }})</span>
+          <br/>
+        </a>
+        {% endfor %}
+      </nav>
+    </div>
   </div>
 {% endif %}

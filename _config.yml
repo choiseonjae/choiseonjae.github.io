@@ -119,7 +119,7 @@ author:
 #   github           : "" # "choiseonjae"
 #   linkedin         : "homesking" # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
 
-# Site Footer # 맨 밑에 다는 
+# Site Footer # 맨 밑에 다는
 footer:
   links:
     - label: "Facebook"
@@ -219,6 +219,7 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path>/my-awesome-category/index.html ~> path: /
+category_dir: categories/
 category_archive:
   type: liquid
   path: /categories/
