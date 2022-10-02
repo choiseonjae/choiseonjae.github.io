@@ -105,6 +105,29 @@ public class ChildService {
 
 ![img_2.png](https://user-images.githubusercontent.com/49507736/193454485-a6bd1296-958e-4149-99ea-0e052597536e.png)
 
+# 원인 파악
+이유에 대해서 팀원과 이야기 나눠봤는데, 파악한 이유는 다음과 같다.
+```
+부모.doBegin() {
+  try {
+    save1()
+    자식.doBegin() {
+      try {
+        save2()
+      } catch (e: Exception) {
+        rollback()
+      }
+        commit() // 해당 시점에 이미 save2가 날라가 버리기 때문...
+    }
+    save3()
+  } catch (e: Exception) {
+    rollback()
+  }
+  commit()
+}
+```
+_이미 DB로 커밋되어 버렸기 때문에 밑에서 rollback이 되더라도 자식 트랜젝션은 돌릴수가 없다_
+
 # 출처
 - https://woodcock.tistory.com/40
 - https://lemontia.tistory.com/878
