@@ -49,29 +49,29 @@ last_modified_at: 2022-09-30
 @RequiredArgsConstructor
 public class ParentService {
 
-        private final Repository repository;
-        private final ChildService childService;
-	
-	
-        @Transactional
-        public void parent() {
-        repository.save(Entity.builder().id(1L).build());
-        childService.child();
-        repository.save(Entity.builder().id(3L).build());
-        throw new RuntimeException(); -> 3번 발생 시점
+  private final Repository repository;
+  private final ChildService childService;
+
+
+  @Transactional
+  public void parent() {
+    repository.save(Entity.builder().id(1L).build());
+    childService.child();
+    repository.save(Entity.builder().id(3L).build());
+    throw new RuntimeException(); -> 3번 발생 시점
+  }
+
+  @Transactional
+  public void parent2() {
+    repository.save(Entity.builder().id(1L).build());
+    try {
+        childService.childThrowException(); -> 2번 발생 시점
+    } catch(Exception e) {
+        log.info("child fail");
     }
-	
-    @Transactional
-    public void parent2() {
-        repository.save(Entity.builder().id(1L).build());
-        try {
-            childService.childThrowException(); -> 2번 발생 시점
-        } catch(Exception e) {
-            log.info("child fail");
-        }
-        repository.save(Entity.builder().id(3L).build());
-        throw new RuntimeException();
-	  }
+    repository.save(Entity.builder().id(3L).build());
+    throw new RuntimeException();
+  }
 }
 ```
 
@@ -111,6 +111,7 @@ public class ChildService {
 부모.doBegin() {
   try {
     save1()
+    
     자식.doBegin() {
       try {
         save2()
@@ -119,6 +120,7 @@ public class ChildService {
       }
         commit() // 해당 시점에 이미 save2가 날라가 버리기 때문...
     }
+    
     save3()
   } catch (e: Exception) {
     rollback()
