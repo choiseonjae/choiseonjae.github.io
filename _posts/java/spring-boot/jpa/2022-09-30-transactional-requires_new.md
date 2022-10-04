@@ -16,10 +16,13 @@ last_modified_at: 2022-09-30
 
 ---
 
-`@Transactional`에서 기본 값은 `REQUIRED` 이다. REQUIRED의 경우, `@Transactional`이 붙어있는 메소드에서 다른 `@Transactional`이 붙은 메소드를 호출하면 두 개의 트랜젝션은 합쳐진다.
+`@Transactional`에서 기본 값은 `REQUIRED` 이다.  
+REQUIRED의 경우, `@Transactional`이 붙어있는 메소드에서 다른 `@Transactional`이 붙은 메소드를 호출하면 두 개의 트랜젝션은 합쳐진다.  
 이 경우에 호출된 메소드에서 rollback이 발생했고 try-catch로 잡더라도 rollback mark는 이미 생겼기 때문에 호출한 메소드도 같이 롤백되버린다.
-이런 경우, 내가 호출한 메소드에서 롤백이 되더라도 (== 런타임 Exception이 발생하더라도) 진행 중인 메소드에서는 그대로 진행할 수 있는 방법을 알아보자.
-추가적으로, propagation 설정이 REQUIREDS_NEW일 경우 롤백 발생했을 때 어떤 식으로 롤백되는지 알아보자.
+
+
+내가 호출한 메소드에서 롤백이 되더라도 (== 런타임 Exception이 발생하더라도) 진행 중인 메소드에서는 그대로 진행할 수 있는 방법을 알아보자.  
+추가적으로, propagation 설정이 REQUIREDS_NEW일 경우 롤백 발생했을 때 어떤 식으로 롤백되는지 알아보자.  
 
 # 동작 방식 요약
 
