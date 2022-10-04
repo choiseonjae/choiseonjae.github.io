@@ -43,7 +43,8 @@ last_modified_at: 2022-09-30
 각 위치별 예외시 롤백 적용범위를 잘 알아둬야 의도치 않은 버그가 생기지 않도록 조심할 수 있을듯 하다.
 
 ## Rollback mark가 생기지 않는 경우
-모든 Runtime Exception의 경우, rollback 마크로 인한 transactional 재사용이 불가능한 것은 아니였다.
+`@Transactional`의 propagation REQUIRED에서 Exception이 발생해도 rollback 마크가 생기지 않는 경우가 존재한다.  
+
 한 Depth를 내려가지 않고, (== 다른 메소드를 호출하지 않고) 발생한 오류에 대해서 try-catch 했을 경우 AOP 가 인식하지 못하여 rollback mark를 새기지 못한다.
 이런 경우, 오류를 잡으면 rollback 이 되지 않기 때문에 `@Transactional` 코드를 작성할 때 고려해서 의도치 않은 버그를 예방하면 좋을 거 같다.
 예제 코드를 보면 다음과 같다.
