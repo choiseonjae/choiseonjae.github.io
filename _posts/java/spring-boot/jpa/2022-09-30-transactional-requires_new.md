@@ -30,7 +30,7 @@ last_modified_at: 2022-09-30
 
 코드 상 롤백이 되는 경우를 그림으로 표현하면 다음과 같다.
 
-![img_1.png](https://user-images.githubusercontent.com/49507736/193454468-50edacf6-cf3f-435e-81a1-d0dfce4caf31.png)
+![img_1.png](https://user-images.githubusercontent.com/49507736/193744022-0d1aab1a-5869-4018-bce8-cb3ded159007.png)
 
 물론, 2번에서 발생한 오류(Unchecked Exception)은 잡지않으면 계속 위로 올라가기 때문에 전체 롤백이 발생한다. 즉, 2번에 오류 발생했고, try-catch로 잡았다고 당연히 가정한다.
 
@@ -41,6 +41,26 @@ last_modified_at: 2022-09-30
 3번에서 발생한 경우, **2번은 이미 commit이 동작하고(트랜잭션이 종료되고) 난 시점이기 때문에 1,3번은 롤백되고 2번은 롤백되지 않는다.**
 
 각 위치별 예외시 롤백 적용범위를 잘 알아둬야 의도치 않은 버그가 생기지 않도록 조심할 수 있을듯 하다.
+
+## Rollback mark가 생기지 않는 경우
+모든 Runtime Exception의 경우, rollback 마크로 인한 transactional 재사용이 불가능한 것은 아니였다.
+한 Depth를 내려가지 않고, (== 다른 메소드를 호출하지 않고) 발생한 오류에 대해서 try-catch 했을 경우 AOP 가 인식하지 못하여 rollback mark를 새기지 못한다.
+이런 경우, 오류를 잡으면 rollback 이 되지 않기 때문에 `@Transactional` 코드를 작성할 때 고려해서 의도치 않은 버그를 예방하면 좋을 거 같다.
+예제 코드를 보면 다음과 같다.
+```java
+@Transactional
+fun test() {
+    reposioty.save(Test.builder().testId(1L).build());
+    
+    try {
+        reposioty.save(Test.builder().testId(2L).build());
+        throw new RuntimeException();
+    } catch (e : Exception) {
+        // 같은 method안에서 오류 발생하고 잡은 경우에 대해서는 aop가 인식하지 못하기 때문에 rollback되지 않는다.
+    }
+}
+```
+
 
 # 코드
 
