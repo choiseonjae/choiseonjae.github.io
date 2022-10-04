@@ -1,5 +1,5 @@
 ---
-title: \[트랜잭션\] propagation REQUIRES_NEW 주의 사항
+title: \[트랜잭션\] rollback mark를 피해서 @Transactional 사용하기 (@Transactional REQUIRES_NEW 사용 시 주의 사항)
 categories: 
    - transactional
 
@@ -9,13 +9,17 @@ tags:
    - propagation
    - REQUIRED
    - REQUIRES_NEW
+   - rollback mark
    
 
 last_modified_at: 2022-09-30 
 
 ---
 
-@Transactional에서 기본 값은 `REQUIRED` 이다. propagation 설정이 REQUIREDS_NEW일 경우, 롤백 발생했을 때 어떤 식으로 롤백되는지 알아보자.
+`@Transactional`에서 기본 값은 `REQUIRED` 이다. REQUIRED의 경우, `@Transactional`이 붙어있는 메소드에서 다른 `@Transactional`이 붙은 메소드를 호출하면 두 개의 트랜젝션은 합쳐진다.
+이 경우에 호출된 메소드에서 rollback이 발생했고 try-catch로 잡더라도 rollback mark는 이미 생겼기 때문에 호출한 메소드도 같이 롤백되버린다.
+이런 경우, 내가 호출한 메소드에서 롤백이 되더라도 (== 런타임 Exception이 발생하더라도) 진행 중인 메소드에서는 그대로 진행할 수 있는 방법을 알아보자.
+추가적으로, propagation 설정이 REQUIREDS_NEW일 경우 롤백 발생했을 때 어떤 식으로 롤백되는지 알아보자.
 
 # 동작 방식 요약
 
@@ -43,7 +47,10 @@ last_modified_at: 2022-09-30
 각 위치별 예외시 롤백 적용범위를 잘 알아둬야 의도치 않은 버그가 생기지 않도록 조심할 수 있을듯 하다.
 
 ## Rollback mark가 생기지 않는 경우
-`@Transactional`의 propagation REQUIRED에서 Exception이 발생해도 rollback 마크가 생기지 않는 경우가 존재한다.  
+위에서 말했듯, 기본적으로 `@Transactional`이 REQUIRED(default 값)이라면, 호출된 메소드들은 전부 하나의 트랜젝션으로 합쳐진다.
+그렇기 때문에 호출된 메소드에서 오류가 발생하면 rollback 마크 생기고 호출한 메소드까지 rollback 되버린다.  
+
+REQURIED_NEW를 사용하지 않고, @Transactional`의 propagation REQUIRED에서 Exception이 발생해도 rollback 마크가 생기지 않는 경우가 존재한다.  
 
 한 Depth를 내려가지 않고, (== 다른 메소드를 호출하지 않고) 발생한 오류에 대해서 try-catch 했을 경우 AOP 가 인식하지 못하여 rollback mark를 새기지 못한다.
 이런 경우, 오류를 잡으면 rollback 이 되지 않기 때문에 `@Transactional` 코드를 작성할 때 고려해서 의도치 않은 버그를 예방하면 좋을 거 같다.
