@@ -49,29 +49,29 @@ last_modified_at: 2022-09-30
 @RequiredArgsConstructor
 public class ParentService {
 
-	private final Repository repository;
-	private final ChildService childService;
+        private final Repository repository;
+        private final ChildService childService;
 	
 	
-	@Transactional
-	public void parent() {
-	  repository.save(Entity.builder().id(1L).build());
-    childService.child();
-	  repository.save(Entity.builder().id(3L).build());
-		throw new RuntimeException(); -> 3번 발생 시점
-	}
+        @Transactional
+        public void parent() {
+        repository.save(Entity.builder().id(1L).build());
+        childService.child();
+        repository.save(Entity.builder().id(3L).build());
+        throw new RuntimeException(); -> 3번 발생 시점
+    }
 	
-	@Transactional
-	public void parent2() {
-	  repository.save(Entity.builder().id(1L).build());
-		try{
-	    childService.childThrowException(); -> 2번 발생 시점
-	  }catch(Exception e) {
-	    log.info("child fail");
+    @Transactional
+    public void parent2() {
+        repository.save(Entity.builder().id(1L).build());
+        try {
+            childService.childThrowException(); -> 2번 발생 시점
+        } catch(Exception e) {
+            log.info("child fail");
+        }
+        repository.save(Entity.builder().id(3L).build());
+        throw new RuntimeException();
 	  }
-	  repository.save(Entity.builder().id(3L).build());
-		throw new RuntimeException();
-	}
 }
 ```
 
@@ -80,18 +80,18 @@ public class ParentService {
 @RequiredArgsConstructor
 public class ChildService {
 
-	private final Repository repository;
+    private final Repository repository;
 	
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
-	public void child() {
-	    repository.save(Entity.builder().id(2L).build());
-	}
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void child() {
+        repository.save(Entity.builder().id(2L).build());
+    }
 
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
-	public void childThrowException() {
-	    repository.save(Entity.builder().id(2L).build());
-			throw new RuntimeException();
-	}
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void childThrowException() {
+        repository.save(Entity.builder().id(2L).build());
+        throw new RuntimeException();
+    }
 }
 ```
 
