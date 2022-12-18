@@ -8,7 +8,9 @@ title: "\\[JAVA] ConcurrentHashMap 이란? (+ 다른 유사한 자료구조)"
 
 
 정말 많은 양의 데이터를 처리해야 했다.   
-조금이라도 성능을 올릴려고 발악해보았다.   
+
+조금이라도 성능을 올릴려고 발악해보았다.
+
 여러 쓰레드를 동시에 수행시켰고, 스킵가능한 데이터는 스킵시키기 위해 List를 만들었다.  
 
 먼저, 이슈가 발생한 이유는 여러 개의 thread가 하나의 list에 접근해 값을 추가하려고 할 때 발생했다.
@@ -16,24 +18,36 @@ title: "\\[JAVA] ConcurrentHashMap 이란? (+ 다른 유사한 자료구조)"
 `list.get()`도 아니고 `list.add()`에서 `ArrayIndexOutOfBoundsException` 오류라니 신기했다.
 
 # 일반적인 자료구조
-ArrayList를 쓴 이유는 처음에는 생각없이 list로 구현했지만(멍청..) 오류가 발생하고나서야 자료구조, 동시성에 대해서 고민하게 됐다.   
-내가 list를 사용하게 된 이유도 오류가 난 id를 보지않고 스킵하기 위해서 한번 발생한 오류 id를 저장하는 용도였고 그렇다면 list가 아닌 set 혹은 map을 쓰는게 맞지 않을까? 하는 생각에 set과 map의 내부 구조에 대해 찾아봤다.
+ArrayList를 쓴 이유는 처음에는 생각없이 list로 구현했지만(운영이 아니라 단순 배치여서 대충..) 오류가 발생하고나서야 
+
+자료구조, 동시성에 대해서 정리해봤다.
 
 ## List
 
-일단, 생각없이 짠 List로 구현했다면 조회할 때 하나씩 뒤지면서 조회하기 때문에 데이터가 쌓일 수록 지연이 늘어난다. (성능을 높이려고 한 작업이 더 늦어질수도...)
+일단, 생각없이 짠 List로 구현했다면 조회할 때 하나씩 뒤지면서 조회하기 때문에 데이터가 쌓일 수록 지연이 늘어난다.
+
+(성능을 높이려고 한 작업이 더 늦어질수도...)
+
 ![list_contains](/assets/image/java/ConcurrentMap/list_contains.png)
 
 ## Set
 
 Set은 조회시에 map과 동일한 방법으로 조회한다. 생성 시점에 map을 생성하고, map을 set처럼 관리한다.
+
+
 ![hashSet_constructor](/assets/image/java/ConcurrentMap/HashSet_constructor.png)
+
+
 ![hash_contains](/assets/image/java/ConcurrentMap/set_containsKey.png)
 
 ## Map
 map은 아래와 같이 key를 hash화 해서 찾고, 같은 hash라면 연결될 같은 Node들을 돌면서 찾는다.
+
 ![map_contain](/assets/image/java/ConcurrentMap/map_containsKey.png)
+
+
 ![getNode](/assets/image/java/ConcurrentMap/map.png)
+
 
 여기까지가 기본적인 ArrayList, HashSet, HashMap이다.
 
@@ -54,7 +68,9 @@ contains 코드를 보면 `synchroized`가 없다. 그래서 여러 쓰레드가
 ![](/assets/image/java/ConcurrentMap/concurrentMap_get.png)
 
 thread-safe를 위해서 lock 걸린 부분을 살펴보면, 아래 같은 버킷에 대해서만 `synchronized` 예약어가 걸려있는게 보인다.
+
 ![](/assets/image/java/ConcurrentMap/concurrentMap_put.png)
+
 put 조차도 key의 해시가 다르면 lock이 걸리지 않고, 같은 해시를 가진 객체에 대해서만 lock 걸리게 된다.
 
 위와 같은 이유로, put / get이 같은 키에서 동시에 발생하면, get은 가장 최근에 업데이트 된 데이터를 반환한다.
@@ -69,14 +85,15 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
     private static final int DEFAULT_CONCURRENCY_LEVEL = 16;
 }
 ```
-`ConcurrentHashMap` 생성 시 아무런 설정도 하지 않는다면 디폴트로 값이 채워지게 되는데, 여기서 capacity의 값이 중요하다.
-capacity == 버킷의 수 == 동시에 쓰기 작업이 가능한 최대 쓰레드의 수 이기 때문이다.
-capacity이 16인 기준으로 예시를 들어보자.
-key는 key.hashCode()로 int 값을 받아온다.
+
+`ConcurrentHashMap` 생성 시 아무런 설정도 하지 않는다면 디폴트로 값이 채워지게 되는데, 여기서 capacity의 값이 중요하다.  
+capacity == 버킷의 수 == 동시에 쓰기 작업이 가능한 최대 쓰레드의 수 이기 때문이다.  
+capacity이 16인 기준으로 예시를 들어보자.  
+key는 key.hashCode()로 int 값을 받아온다.  
 ![](/assets/image/java/ConcurrentMap/hashcode.png)
 
-그럼 이 값을 capacity의 나머지를 계산해서 hashCode(int) % capacity(16) ==> index가 된다.
-중복하는 index는 Node에 이어서 LinkList처럼 연결되게 된다.
+그럼 이 값을 capacity의 나머지를 계산해서 hashCode(int) % capacity(16) ==> index가 된다.  
+중복하는 index는 Node에 이어서 LinkList처럼 연결되게 된다.  
 그래서 같은 index를 많이 가지게 되면 Node를 타고 타고 equal() 함수를 호출한다.
 
 한 공간에 들어가있는 데이터 수가 1 이하면 `get()`메소드를 실행해도 `equals()`를 호출할 필요가 없으니 성능이 빠를 것이다.
