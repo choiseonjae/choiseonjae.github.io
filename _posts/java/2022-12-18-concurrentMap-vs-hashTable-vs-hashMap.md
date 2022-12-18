@@ -1,10 +1,10 @@
 ---
-title: "\\[JAVA] ConcurrentMap 이란? (그 외 다른 유사한 자료구조 정리)"
+title: "\\[JAVA] ConcurrentHashMap 이란? (+ 다른 유사한 자료구조)"
 ---
 
 오류를 만났다.. 알고있던 오류였지만 이 메소드에서 발생할 수 있다는 점은 놀라웠다.
 
-![error_picture](/assets/image/스크린샷%202022-12-18%2020.39.59.png)
+![error_picture](/assets/image/java/ConcurrentMap/ArrayIndexOutOfBoundsException.png)
 
 
 정말 많은 양의 데이터를 처리해야 했다.   
@@ -22,39 +22,39 @@ ArrayList를 쓴 이유는 처음에는 생각없이 list로 구현했지만(멍
 ## List
 
 일단, 생각없이 짠 List로 구현했다면 조회할 때 하나씩 뒤지면서 조회하기 때문에 데이터가 쌓일 수록 지연이 늘어난다. (성능을 높이려고 한 작업이 더 늦어질수도...)
-![list_contains](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1MTQ0LWExNjM5ZjRkLTA5YWUtNDlhYS05NjFlLTJiYWJlMWIyYjUzNi5wbmc~)
+![list_contains](/assets/image/java/ConcurrentMap/list_contains.png)
 
 ## Set
 
 Set은 조회시에 map과 동일한 방법으로 조회한다. 생성 시점에 map을 생성하고, map을 set처럼 관리한다.
-![hashSet_constructor](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1MjM3LTcyYTk4YTNkLWFiMDgtNDdhNC1hN2U0LWFjZDIxMGM2MDMwMC5wbmc~)
-![hash_contains](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1MjMyLTQ2NmNkMGQwLTkyN2UtNGJjZS05ZDk0LTg1ODA0MjQ4NDkwZS5wbmc~)
+![hashSet_constructor](/assets/image/java/ConcurrentMap/HashSet_constructor.png)
+![hash_contains](/assets/image/java/ConcurrentMap/set_containsKey.png)
 
 ## Map
 map은 아래와 같이 key를 hash화 해서 찾고, 같은 hash라면 연결될 같은 Node들을 돌면서 찾는다.
-![map_contain](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1MzgxLTI1NWYzY2UzLTZkOWMtNDJiOC05NjA0LWIzYmI5NmIwZDU2MS5wbmc~)
-![getNode](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1NDI0LWJkZDUwMGMwLTMwM2UtNGZiYi04NTY4LTU2NGI2OTUyNjBiOS5wbmc~)
+![map_contain](/assets/image/java/ConcurrentMap/map_containsKey.png)
+![getNode](/assets/image/java/ConcurrentMap/map.png)
 
 여기까지가 기본적인 ArrayList, HashSet, HashMap이다.
 
 # Synchronized 자료구조
 ## Collections.synchronizedSet()
-![Collections.synchronizedSet_contains](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1OTU1LTVjZmVjMmQwLTQ0YTctNGFiOC1iNWJlLTY0MzNkYzUzNmQ2NS5wbmc~)
+![Collections.synchronizedSet_contains](/assets/image/java/ConcurrentMap/Collections_synchronizedSet.png)
 contains 메소드 자체에 `synchroized`가 걸려있는 걸 볼 수 있다. 이런 경우, 메소드가 임계 구역으로 설정되 thread가 점유하고 있을 때, 다른 쓰레드가 접근하려고 하면 Lock이 걸려 병목 현상이 발생한다.
 ## Collections.synchronizedMap()
-![Collections.synchronizedMap()contains](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg1OTcxLTUwZjQ2Y2I0LWRkYzItNDc4Yi1hYTM2LTJkOGRmMTFkZGM0Yi5wbmc~)
+![Collections.synchronizedMap()contains](/assets/image/java/ConcurrentMap/concurrentHashMap_containsKey.png)
 이 자료구조 또한 `Collections.synchronizedSet()`과 동일하게 병목 현상이 발생하여, 성능에 하락이 있을 수 있다.
 ## HashTable
 Map 이다. 모든 메소드에 `synchroized`가 붙어있다. 위와 같이 느리다는 단점이 있다. 현재로서는 잘 안쓰이는 자료구조이다.
-![hash_table_contain](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg2MTg2LTZmNTMzMjA2LWQ2MzItNDdjZC05YzYxLWVlYjBiMjE0MGJmZi5wbmc~)
+![hash_table_contain](/assets/image/java/ConcurrentMap/HashTable.png)
 ## ConcurrentHashMap
 Hashtable 클래스의 단점을 보완하면서 Multi-Thread 환경에서 사용할 수 있도록 나온 클래스가 바로 `ConcurrentHashMap` 이다.
 contains 코드를 보면 `synchroized`가 없다. 그래서 여러 쓰레드가 동시에 접근해서 병목현상이 없고, 빠르게 조회가 가능하다.
-![](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg2NDgyLWFlNjRiMjRiLWQ2YjMtNDUyYi1hNGE1LWZiNzNlNzBjNWNjNy5wbmc~)
-![](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg2NTMxLWJiYjhjMWYwLWFmYmUtNDYxNi05YWU5LTkxYTEzMWYwY2FiYS5wbmc~)
+![](/assets/image/java/ConcurrentMap/concurrentHashMap_containsKey.png)
+![](/assets/image/java/ConcurrentMap/concurrentMap_get.png)
 
 thread-safe를 위해서 lock 걸린 부분을 살펴보면, 아래 같은 버킷에 대해서만 `synchronized` 예약어가 걸려있는게 보인다.
-![](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg2NTk5LWMxYTgzOTA3LWM4MTYtNDYzMS1iYmIxLTM2NjQyMDQ5NjRjYy5wbmc~)
+![](/assets/image/java/ConcurrentMap/concurrentMap_put.png)
 put 조차도 key의 해시가 다르면 lock이 걸리지 않고, 같은 해시를 가진 객체에 대해서만 lock 걸리게 된다.
 
 위와 같은 이유로, put / get이 같은 키에서 동시에 발생하면, get은 가장 최근에 업데이트 된 데이터를 반환한다.
@@ -73,7 +73,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
 capacity == 버킷의 수 == 동시에 쓰기 작업이 가능한 최대 쓰레드의 수 이기 때문이다.
 capacity이 16인 기준으로 예시를 들어보자.
 key는 key.hashCode()로 int 값을 받아온다.
-![](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg3NTAwLWZmZjQ4MTQzLTNjNjEtNGU4MC1hMWJhLTM1NjYwYzM4MDIyYS5wbmc~)
+![](/assets/image/java/ConcurrentMap/hashcode.png)
 
 그럼 이 값을 capacity의 나머지를 계산해서 hashCode(int) % capacity(16) ==> index가 된다.
 중복하는 index는 Node에 이어서 LinkList처럼 연결되게 된다.
