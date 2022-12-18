@@ -4,7 +4,7 @@ title: "\\[JAVA] ConcurrentMap 이란? (그 외 다른 유사한 자료구조 �
 
 오류를 만났다.. 알고있던 오류였지만 이 메소드에서 발생할 수 있다는 점은 놀라웠다.
 
-![error_picture](https://ap-northeast-2-02870039-view.menlosecurity.com/c/0/i/aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk1MDc3MzYvMjA4Mjg0NDY1LTJjOGE5NDlhLTM5Y2MtNDBjNy05ZWVjLTUwZWRhMTI4YWZjZC5wbmc~)
+![error_picture](/assets/image/스크린샷%202022-12-18%2020.39.59.png)
 
 
 정말 많은 양의 데이터를 처리해야 했다.   
