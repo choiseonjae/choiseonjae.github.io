@@ -83,16 +83,71 @@ body {
 }
 
 .page__content {
-  
+
   /*
   page 안에 content의 헤더 색 변경
   ========================================================================== */
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    font-family:"Nanum Gothic",sans-serif;
+    font-weight:700;
+    position:relative;
+    color: #9769fa;
+
+    //기존에 h2에만 있는 부분
+    padding: 0.5em;
+    border-radius:25px;
+    border: 2px solid #9769fa;
+
+    .header-link {
+      position: relative;
+      left: 0.5em;
+      opacity: 0;
+      font-size: 0.8em;
+      -webkit-transition: opacity 0.2s ease-in-out 0.1s;
+      -moz-transition: opacity 0.2s ease-in-out 0.1s;
+      -o-transition: opacity 0.2s ease-in-out 0.1s;
+      transition: opacity 0.2s ease-in-out 0.1s;
+    }
+
+    &:hover .header-link {
+      opacity: 1;
+    }
+  }
+
+  h2 {
     // 내가 추가한 부분
     font-family:"Nanum Gothic",sans-serif;
-    font-weight:700; 
     position:relative;
-    border: 5px;
+    //border-color:#6051a4;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    color: #9769fa;
+    border-bottom: 2px solid #9769fa;
+    //border-left-style:solid; // header에 왼쪽 선
+    //border-left-width:.25em;
+
+    //기존에 h2에만 있는 부분
+
+    .header-link {
+      position: relative;
+      left: 0.5em;
+      opacity: 0;
+      font-size: 0.8em;
+      -webkit-transition: opacity 0.2s ease-in-out 0.1s;
+      -moz-transition: opacity 0.2s ease-in-out 0.1s;
+      -o-transition: opacity 0.2s ease-in-out 0.1s;
+      transition: opacity 0.2s ease-in-out 0.1s;
+    }
+
+    &:hover .header-link {
+      opacity: 1;
+    }
+  }
+
+  h3, h4, h5, h6 {
+    // 내가 추가한 부분
+    font-family:"Nanum Gothic",sans-serif;
+    position:relative;
     border-radius:4px;
     border-color:#6F777D;
     border-left-style:solid;
@@ -100,7 +155,6 @@ body {
     padding-left:.25em;
     font-weight:700;
 
-    // 기존에 h2에만 있는 부분
     padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
 
@@ -114,10 +168,6 @@ body {
       -o-transition: opacity 0.2s ease-in-out 0.1s;
       transition: opacity 0.2s ease-in-out 0.1s;
     }
-  
-		&:hover .header-link {
-			opacity: 1;
-		}
 	}
 
   p,
