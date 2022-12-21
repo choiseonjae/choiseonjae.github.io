@@ -148,6 +148,54 @@ Iteration의 부하는 (capacity + 저장된 데이터 수)와 비례하기 때�
 
 ex) 16의 capacity는 전체 조회 시 16번을 도는데 (그 안의 데이터는 차치하더라도), 16만개의 capacity는 16만번을 조회해야하기 때문이다.
 
+### 어떻게 동시성 보장을 보장할까?
+
+사실 동시성을 보장하는 방법 중 가장 쉬운 방법은
+
+`synchronized`를 쓰면 안전하게 동시성을 보장할 수 있다.
+
+하지만, 사용하기에 따라서 성능 이슈가 있습니다. 특히 위에서 언급한 `HashTable` 에서 얘기됐던 성능이 가장 큰 문제가 있다.
+
+이를 ConcurrentHashMap은 정말 멋지고 어-썸한 여러가지 방법으로 개-선을 했는데 크게 두 가지 방법들로 해결한다.
+
+그 중에 하나는 위에서 말한 put 중에서도 버킷에 노드가 존재할 때만 `syncronized`를 거는 방법이고,
+
+두번째 방법은 [CAS 알고리즘 사용](https://howtodoinjava.com/java/multi-threading/compare-and-swap-cas-algorithm/)이다.
+
+{% capture content %}
+
+링크에 있는 내용을 번역기로 돌리면 다음과 같다.
+
+메모리 위치의 내용을 주어진 값과 비교하고 동일한 경우에만 해당 메모리 위치의 내용을 주어진 새 값으로 수정합니다. 이것은 단일 원자 연산으로 수행됩니다. 원자성은 최신 정보를 기반으로 새 값이 계산되도록 보장합니다. 그 동안 다른 스레드에서 값을 업데이트한 경우 쓰기가 실패합니다. 작업 결과는 대체를 수행했는지 여부를 나타내야 합니다. 이는 간단한 부울 응답(이 변형은 종종 비교 및 ​​설정이라고 함)을 사용하거나 메모리 위치에서 읽은 값(기록된 값이 아님)을 반환하여 수행할 수 있습니다.
+
+CAS 작업에는 3가지 매개변수가 있습니다.
+
+1. 값을 대체해야 하는 메모리 위치 V  
+2. 스레드가 마지막으로 읽은 이전 값 A  
+3. V 위에 쓰여져야 하는 새로운 값 B  
+
+즉, 정리하자면 
+
+V 위치에 있는 값 A를 기록해두고, A 값을 수정하여 쓰고자하는 B를 만든다.
+V에 덮어쓰기전 V의 값이 A라면 수정하고, A가 아닌 새로운 값이 다른 thread에 의해 수정되었다면 (실패 감지) 다시 처음부터 시작하는 한다.
+
+{% endcapture %}
+
+{% include notice--info title="CAS 알고리즘이란?" content=content %}
+
+- [Unsafe](https://rangken.github.io/blog/2015/sun.misc.unSafe/) 에 대한 내용
+
+![](/assets/image/java/ConcurrentMap/cas.png)
+
+위 밑 줄을 보면, 새로운 Node를 삽입하기 위해, tabAt()을 통해 해당 bucket을 가져오고 bucket == null로 비어 있는지 확인한다.
+
+그리고, 버킷 전체가 들어있는 tab과 그 넣을 위치의 i (== bucket) 이 비어 있을 때, cas(전체 bucket, 위치 (i), null (비어져있었으니까), new Node) 를 호출하게 된다.
+
+bucket이 비어 있을 경우 `casTabAt`을 통해 node를 새로 생성하는데 생성에 실패시에 다시 재시도 한다.
+
+즉, 정확한 위치에 (버킷이 존재할 때만) `synchronized` 와 CAS 알고리즘으로 concurrentHashMap은 원자성과 성능을 챙겼다.
+
+
 # 오늘의 결론
 multi-thread에서 thread-safe하게 사용할 땐, ConcurrentMap을 사용하는 게 좋을 수 있다.
 
@@ -162,3 +210,6 @@ HashMap에 저장될 데이터의 수가 짐작 가능하다면,될 수 있으�
 - https://onsil-thegreenhouse.github.io/programming/java/2018/02/22/java_tutorial_HashMap_bucket/
 - https://pplenty.tistory.com/17
 - https://ktko.tistory.com/entry/%EC%9E%90%EB%B0%94-synchronized%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC
+- https://dgle.dev/ConcurrentHashMap/
+- https://howtodoinjava.com/java/multi-threading/compare-and-swap-cas-algorithm/
+- https://rangken.github.io/blog/2015/sun.misc.unSafe/
