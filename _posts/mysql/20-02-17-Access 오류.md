@@ -1,8 +1,7 @@
 ---
 title: \[MYSQL] Access denied for user ~ (using password YES)  
 
-categories: 
-   - mysql
+categories: database
 tags:
    - mysql
    - error
