@@ -1,7 +1,7 @@
 ---
 title: \[chrome] 자주 쓰는 크롬 단축키
 
-categories: chrome
+categories: etc
 
 tags:
    - 단축키
