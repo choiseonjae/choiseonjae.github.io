@@ -1,7 +1,7 @@
 ---
 title: markup(마크업)과 마크다운(markdown)의 차이점은 무엇일까?
 
-categories:  difference
+categories: difference
 
 tags:
    - markdown

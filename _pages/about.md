@@ -1,8 +1,7 @@
 ---
 title: 경력 기술서
 
-categories: 
-   - About
+categories: About
 
 permalink: /about/
 

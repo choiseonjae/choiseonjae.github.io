@@ -2,8 +2,7 @@
 title: \[JPA] @Transactional(readOnly = true)
 permalink: /java/spring-boot/transactional/readOnly
 
-categories: 
-   - jpa
+categories: jpa
 
 tags:
    - annotation

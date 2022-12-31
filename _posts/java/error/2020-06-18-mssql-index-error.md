@@ -1,8 +1,7 @@
 ---
 title: \[JAVA] MSSQL 사용 시 인덱스 {}이(가) 범위를 벗어났습니다. 은 왜 발생할까?
 permalink: /java/mssql/error/1
-categories: 
-   - java
+categories: java
 tags:
    - java
    - mssql

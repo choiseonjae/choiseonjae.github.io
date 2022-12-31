@@ -1,7 +1,7 @@
 ---
 title: \[JPA\] rollback mark를 피해서 @Transactional 사용하기 (@Transactional REQUIRES_NEW 사용 시 주의 사항)
-categories: 
-   - jpa
+
+categories: jpa
 
 tags:
    - transactional
