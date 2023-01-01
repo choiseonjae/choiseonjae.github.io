@@ -1,6 +1,6 @@
 ---
 title: Clean Code(클린 코드) 작성하기
-categories:  java 
+categories: java 
 
 tags:
    - clean code

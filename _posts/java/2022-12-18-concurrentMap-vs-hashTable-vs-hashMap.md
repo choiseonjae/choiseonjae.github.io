@@ -1,5 +1,15 @@
 ---
+
 title: "\\[JAVA] ConcurrentHashMap 이란? (+ 다른 유사한 자료구조)"
+
+categories: java
+
+tags:
+- java
+- fallback
+
+last_modified_at: 2023-01-01 19:57:00
+
 ---
 
 오류를 만났다.. 알고있던 오류였지만 이 메소드에서 발생할 수 있다는 점은 놀라웠다.
