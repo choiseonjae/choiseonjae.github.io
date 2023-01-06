@@ -1,8 +1,8 @@
 ---
-title: \[MySQL] Stored Procedure 확인 및 수정
+title: \[MYSQL] Stored Procedure 확인 및 수정
 
-categories: 
-   - mysql
+categories: database
+
 tags:
    - mysql
    - procedure

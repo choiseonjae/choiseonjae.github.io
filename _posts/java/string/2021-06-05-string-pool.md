@@ -1,7 +1,7 @@
 ---
 title: \[JAVA] String 객체는 어떻게 저장될까? (String Pool)
 
-categories:  java
+categories: java
 
 tags:  
  - java

@@ -1,8 +1,7 @@
 ---
 title: \[JAVA] StringBuffer와 StringBuilder의 차이점은 무엇이고 왜 사용할까?
 
-categories: 
-   - java
+categories: java
 
 tags:
    - java

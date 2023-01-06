@@ -1,8 +1,7 @@
 ---
 title: \[JAVA\] Wrapper class 에 대한 짧은 정리
 
-categories: 
-   - java
+categories: java
 
 tags:
    - java

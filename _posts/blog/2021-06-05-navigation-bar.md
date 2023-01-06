@@ -1,7 +1,6 @@
 ---
 title: \[Jekyll\] 상단 네비게이션 바 추가/수정/삭제 하기
-categories: 
-   - jekyll
+categories: blog
 
 tags:
    - github io

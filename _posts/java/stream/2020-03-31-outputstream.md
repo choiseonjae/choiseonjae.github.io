@@ -1,7 +1,7 @@
 ---
 title: \[Java] OutputStream의 정의와 종류
-categories:  
-- java 
+
+categories: java 
 
 tags:
 - FileOutputStream

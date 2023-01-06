@@ -1,8 +1,7 @@
 ---
 title: \[JAVA] JDBC 로 SP(StoredProcedue) 호출 시 발생하는 에러 해결 방법
 permalink:  /danal/lg-pay/stored-procedure/error
-categories: 
-   - java
+categories: java
 
 tags:
    - error

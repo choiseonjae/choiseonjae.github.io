@@ -1,5 +1,5 @@
 ---
-title: \[데이터베이스] Group By와 Partition By의 유사점 및 차이점 
+title: \[DB] Group By와 Partition By의 유사점 및 차이점 
 
 header:
   teaser: https://cdn.imweb.me/thumbnail/20200915/a0c073d00397a.png
@@ -14,7 +14,7 @@ tags:
    - order by
    - mysql
 
-last_modified_at: 2022-08-11 
+last_modified_at: 2023-01-01 01:33:00 
 
 ---
 
