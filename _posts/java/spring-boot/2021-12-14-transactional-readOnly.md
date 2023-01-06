@@ -2,15 +2,12 @@
 title: \[Spring Boot] @Transactional(readOnly = true)
 permalink: /java/spring-boot/transactional/readOnly
 
-categories: 
-   - spring boot
+categories: spring-boot
 
 tags:
    - annotation
    - readOnly
    - transactional
-   - spring boot
-   
 
 last_modified_at: 2021-12-14 15:21:32.71 
 

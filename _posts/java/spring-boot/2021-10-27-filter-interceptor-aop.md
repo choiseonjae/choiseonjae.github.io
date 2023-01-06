@@ -2,15 +2,12 @@
 title: \[Spring Boot\] Filter vs Interceptor vs AOP 의 차이 초간단 정리
 permalink: /java/spring-boot/fileter-interceptor-aop
 
-categories: 
-   - spring boot
+categories: spring-boot
 
 tags:
-   - spring boot
    - filter
    - interceptor
    - aop
-   
 
 last_modified_at: 2021-10-27 19:21:32.71 
 
