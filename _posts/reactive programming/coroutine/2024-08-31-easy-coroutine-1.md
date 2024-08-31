@@ -17,7 +17,8 @@ last_modified_at: 2024-08-31
 뭐든지 사용하기 전에는 왜 사용해야 하는지 장,단점을 알고 써야 합니다.
 
 ## 먼저, 코루틴이란?
-코루틴(Coroutine)은 비동기 프로그래밍을 위한 솔루션입니다. 간단히 말해, 코루틴은 비blocking 코드를 마치 동기 코드처럼 작성할 수 있게 해주는 경량 스레드라고 할 수 있습니다.
+코루틴(Coroutine)은 비동기 프로그래밍을 위한 솔루션입니다. 간단히 말해, 코루틴은 non-blocking 코드를 마치 동기 코드처럼 작성할 수 있게 해주는 경량 스레드와 비슷하다고 할 수 있습니다.
+(Spring에서는 공식적으로 경량 스레드는 아니라고 하네요
 
 ## 왜 코루틴을 사용해야 할까요?
 
@@ -57,5 +58,5 @@ last_modified_at: 2024-08-31
 
 {% include toggle title="" content="" %}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxODM4MzQ1XX0=
+eyJoaXN0b3J5IjpbMTA4NjQ1MTMzOF19
 -->
