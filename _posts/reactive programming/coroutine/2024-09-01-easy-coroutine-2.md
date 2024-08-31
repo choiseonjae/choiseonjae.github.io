@@ -40,8 +40,17 @@ last_modified_at: 2024-09-01
 이것도 말 그대로 코루틴의 스코프(범위)를 지정하는 "중단 함수"이다.
 코루틴 스코프(coroutineScope, withContext 등)을 사용하면 그 범위 안에 있는 모든 코루틴이 종료될 때까지 대기한다.
 ```kotlin
-corou
+coroutineScope {
+	launch { /* 병렬 */ }
+	launch { /* 병렬 */ }
+	launch { /* 병렬 */ }
+}
 ```
+
+위와 같이 코루틴 빌더를 통해 병렬 동작을 실행해도 모든 자식 코루틴의 종료를 기다린 뒤 스코프를 빠져나온다.
+이게 구조화된 동시성의 가장 큰 특징 중 하나이다.
+동시성이 진행되지만
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMDU2MTI2NywtMTgyNzQ4MjQ0MV19
+eyJoaXN0b3J5IjpbLTEyMzg0NjQ4NDYsLTE4Mjc0ODI0NDFdfQ
+==
 -->
