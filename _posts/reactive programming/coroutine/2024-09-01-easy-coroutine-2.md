@@ -38,7 +38,10 @@ last_modified_at: 2024-09-01
 
 ## 코루틴 스코프
 이것도 말 그대로 코루틴의 스코프(범위)를 지정하는 "중단 함수"이다.
-
+코루틴 스코프(coroutineScope, withContext 등)을 사용하면 그 범위 안에 있는 모든 코루틴이 종료될 때까지 대기한다.
+```kotlin
+corou
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mjc0ODI0NDFdfQ==
+eyJoaXN0b3J5IjpbMTkwMDU2MTI2NywtMTgyNzQ4MjQ0MV19
 -->
