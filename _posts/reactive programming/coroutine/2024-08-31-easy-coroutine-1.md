@@ -2,7 +2,7 @@
 title: \[코루틴] 왜 써야할까?
 
 header:
-  teaser: assets/coroutine_teaser.png
+  teaser: /assets/coroutine_teaser.png
 
 categories: coroutine
    
@@ -23,5 +23,5 @@ last_modified_at: 2024-08-31
 
 {% include toggle title="" content="" %}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNTQ1MzE0N119
+eyJoaXN0b3J5IjpbLTEwMTkwMDUwMTJdfQ==
 -->
