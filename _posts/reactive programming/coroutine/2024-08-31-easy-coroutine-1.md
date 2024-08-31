@@ -32,7 +32,11 @@ coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴�
 ## 결론적으로
 제가 생각했을 때, 서버에서는 구조화된 동시성을 이용해 부모에서 자식 코루틴을 전부 종료시키는 상황은 크게 없긴 합니다.
 
-그럼에도 불구하고, 비동기이지만 그 흐름을 컨트롤 가능하다는 점
+그럼에도 불구하고, 다음과 같은 장점으로도 충분히 정말 충분히 쓸만한 가치가 있다고 생각함
+1. 비동기이지만 그 흐름을 컨트롤 가능하다는 점
+2. 병렬이 아닌 중단을 통한 리소스를 최소로 쓰면서 동시성 효과를 낼 수 있다는 점
+3. webflux에 비해 코드 가독성도 좋다는 점(러닝 커브는 막상 공부해보니 큰다고 생각됨)
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMjEzMjUwNywxMDg2NDUxMzM4XX0=
+eyJoaXN0b3J5IjpbLTYzOTEzMDY3MiwxMDg2NDUxMzM4XX0=
 -->
