@@ -37,8 +37,10 @@ coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴�
 2. 병렬이 아닌 중단을 통한 리소스를 최소로 쓰면서 동시성 효과를 낼 수 있다는 점 (병렬도 손쉽게 쓸 수 있지만)
 3. webflux에 비해 코드 가독성도 좋다는 점(러닝 커브는 막상 공부해보니 큰다고 생각됨)
 
-단점은 잘 모르고 쓰면 크게 성능 향상이 없을 수 임
+단점은 잘 모르고 쓰면 성능 향상이 없을 수 있음
+가령, blocking call을 코루틴에서 사용하면 Dispatchers를 달아놓지 않는 한 main 흐름도 blocking 됨.
+부모 코루틴을 종료시켜 원하지 않ㄱ 내가 생각하지 못한 이슈가 생길 수 있음
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNTE4OTc5NywxMDg2NDUxMzM4XX0=
+eyJoaXN0b3J5IjpbLTUyNjM4NDE3LDEwODY0NTEzMzhdfQ==
 -->
