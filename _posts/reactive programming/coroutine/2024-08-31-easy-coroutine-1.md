@@ -1,5 +1,5 @@
 ---
-title: \[코루틴] 왜 써야할까?
+title: \[코루틴] 코루린 왜 써야할까?
 
 header:
   teaser: /assets/coroutine_teaser.png
@@ -23,5 +23,5 @@ last_modified_at: 2024-08-31
 
 {% include toggle title="" content="" %}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTkwMDUwMTJdfQ==
+eyJoaXN0b3J5IjpbOTE4Mzk4ODk2XX0=
 -->
