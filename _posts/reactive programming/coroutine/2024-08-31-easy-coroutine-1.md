@@ -39,8 +39,7 @@ coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴�
 
 단점은 잘 모르고 쓰면 성능 향상이 없을 수 있음
 가령, blocking call을 코루틴에서 사용하면 Dispatchers를 달아놓지 않는 한 main 흐름도 blocking 됨.
-부모 코루틴을 종료시켜 원하지 않ㄱ 내가 생각하지 못한 이슈가 생길 수 있음
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNjM4NDE3LDEwODY0NTEzMzhdfQ==
+eyJoaXN0b3J5IjpbLTEyNTEwNzUzNjUsMTA4NjQ1MTMzOF19
 -->
