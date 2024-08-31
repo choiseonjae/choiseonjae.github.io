@@ -33,11 +33,12 @@ last_modified_at: 2024-09-01
 
 {% include notice--info title="코루틴 빌더의 핵심" content=content %}
 
-
 즉, 같은 코루틴에서 중단해봤다 pool thread가 돌아가는 거고, 자식 코루틴을 생성해야 (launch, async) thread가 중단되었을 때 자식 코루틴이 수행되는 것이다.
 (물론, Dispatchers를 설정해준다면 새로운 thread가 할당돼 중단되지 않아도 동작하겠지만)
 
+## 코루틴 스코프
+이것도 말 그대로 코루틴의 스코프(범위)를 지정하는 "중단 함수"이다.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTIxODY1NTFdfQ==
+eyJoaXN0b3J5IjpbLTE4Mjc0ODI0NDFdfQ==
 -->
