@@ -38,7 +38,7 @@ last_modified_at: 2024-09-01
 
 ## 코루틴 스코프
 이것도 말 그대로 코루틴의 스코프(범위)를 지정하는 "중단 함수"이다.
-(중단 함수이기 때문에 밖에서 이미 자식 코루틴이 수
+(중단 함수이기 때문에 밖에서 이미 자식 코루틴이 선언되었다면 먼저 수행되고 해당 코루틴 스코프가 동작하는데, 이건 복잡해서 다음에 설명함)
 코루틴 스코프(coroutineScope, withContext 등)을 사용하면 그 범위 안에 있는 모든 코루틴이 종료될 때까지 대기한다.
 ```kotlin
 coroutineScope {
@@ -53,8 +53,11 @@ coroutineScope {
 병렬 혹은 동시성이 진행되지만, 어느정도는 그 구조와 흐름을 예측할 수 있는 것이다.
 
 ## 결론적으로
-코루틴 스코프는 병렬 동작을 진행하고 싶을 때, 중단
+쉽게 정리해서 
+코루틴 스코프는 병렬 동작을 진행하고 싶을 때, 그 범위를 지정하는 용도
+(코루틴 스코프는 코루틴을 생성하는 건 아니다)
+코루틴 빌더는 실제 동시성 or 병렬 동작을 하게 도와주는 용도이다.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTA3NTkxMjYsLTE4Mjc0ODI0NDFdfQ
-==
+eyJoaXN0b3J5IjpbMTY2ODEzMTEzOSwtMTgyNzQ4MjQ0MV19
 -->
