@@ -13,7 +13,8 @@ tags:
 last_modified_at: 2024-08-31 
 
 ---
-## 왜 코루틴을 사
+
+## 왜 코루틴을 사용해야할까?
 {% capture content %}
 
 {% endcapture %}
@@ -22,5 +23,5 @@ last_modified_at: 2024-08-31
 
 {% include toggle title="" content="" %}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDkzMTU2OTFdfQ==
+eyJoaXN0b3J5IjpbLTcwNTQ1MzE0N119
 -->
