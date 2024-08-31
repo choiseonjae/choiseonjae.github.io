@@ -13,7 +13,6 @@ tags:
 last_modified_at: 2024-08-31 
 
 ---
-
 뭐든지 사용하기 전에는 왜 사용해야 하는지 장,단점을 알고 써야 합니다.
 
 ## 코루틴이란?
@@ -41,5 +40,5 @@ coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴�
 가령, blocking call을 코루틴에서 사용하면 Dispatchers를 달아놓지 않는 한 main 흐름도 blocking 됨.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTEwNzUzNjUsMTA4NjQ1MTMzOF19
+eyJoaXN0b3J5IjpbMTE2NzExMDQ5LDEwODY0NTEzMzhdfQ==
 -->
