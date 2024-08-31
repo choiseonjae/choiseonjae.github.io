@@ -30,7 +30,9 @@ coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴�
 4.  코루틴은 스레드 생성보다 훨신 가벼워서, 비동기에 대한 비용이 적습니다.
 
 ## 결론적으로
-제가 생각했을 때, 서버에서는 구조화된 동시성을 이용해 ㅈ
+제가 생각했을 때, 서버에서는 구조화된 동시성을 이용해 부모에서 자식 코루틴을 전부 종료시키는 상황은 크게 없긴 합니다.
+
+그럼에도 불구하고, 비동기이지만 그 흐름을 컨트롤 가능하다는 점
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTE2NTk2ODIsMTA4NjQ1MTMzOF19
+eyJoaXN0b3J5IjpbMTYxMjEzMjUwNywxMDg2NDUxMzM4XX0=
 -->
