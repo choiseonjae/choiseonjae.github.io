@@ -57,7 +57,9 @@ coroutineScope {
 코루틴 스코프는 병렬 동작을 진행하고 싶을 때, 그 범위를 지정하는 용도
 (**코루틴 스코프는 코루틴을 생성하는 건 아니다** 나의 코루틴을 가져오되, 그 범위를 지정하는 것)
 코루틴 빌더는 실제 동시성 or 병렬 동작을 하게 도와주는 용도이다.
+(**코루틴 빌더는 코루틴을 생성하는 것. 부모 코루틴과 구조화된 동시성이 생긴다**)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUyMTY3NTg1LC0xODI3NDgyNDQxXX0=
+eyJoaXN0b3J5IjpbLTE5ODExMjg5OTYsLTE4Mjc0ODI0NDFdfQ
+==
 -->
