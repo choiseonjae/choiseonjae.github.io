@@ -14,6 +14,7 @@ last_modified_at: 2024-08-31
 
 ---
 뭐든지 사용하기 전에는 왜 사용해야 하는지 장,단점을 알고 써야 합니다.
+![s](https://postfiles.pstatic.net/MjAyNDA5MDFfMjQg/MDAxNzI1MTU3MzExMTM1.bFjLyKDhPLn2NoCn6olPsXnDY5mmMJozGUosnHa0HeIg.4Guymp_sLNR2oulTMkt-GblNgfL4XtoynkNPQZk2ePgg.JPEG/thisisengineering-sCgQPQZAeO4-unsplash.jpg?type=w773)
 
 ## 코루틴이란?
 coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴이라는 의미입니다.
