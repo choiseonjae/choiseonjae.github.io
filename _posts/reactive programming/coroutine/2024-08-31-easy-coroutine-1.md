@@ -1,6 +1,6 @@
 ---
 title: \[코루틴] 코루린 왜 써야할까?
-
+external_url: "https://choiseonjae.notion.site/feat-c2700c2f1f8a498e92b9fedd45e4b723?pvs=74"
 header:
   teaser: /assets/coroutine_teaser.png
 
@@ -10,6 +10,7 @@ tags:
    - kotlin
    - coroutine
 
+date: 2024-08-31 
 last_modified_at: 2024-08-31 
 
 ---
