@@ -55,13 +55,16 @@ last_modified_at: 2024-09-16
 
 ```kotlin
 coroutineScope {
-		val job = launch(Dispatchers.IO) { // Dispatchers는 변경 가능
-				// 병렬 로직
-		}
-		
-		val defferd = async(Dispatchers.IO) { // Dispatchers는 변경 가능
-				// 병렬 로직
-		}
+  val job = launch(Dispatchers.IO) { // Dispatchers는 변경 가능
+      // 병렬 로직
+  }
+  
+  val defferd = async(Dispatchers.IO) { // Dispatchers는 변경 가능
+      // 병렬 로직
+  }
+  launch { // Dispatchers는 미 설정 시, 동시성 으로 동작 (기존 Thread 반환 시 동작)
+
+  }
 }
 ```
 
@@ -75,14 +78,14 @@ coroutineScope 안에서는 job과 defferd가 병렬로 수행됩니다.
 ```kotlin
 // 매번 코루틴 스코프를 생성할 때,
 while (true) {
-		supervisorScope { // 자식 코루틴 간의 예외 무시. chunk 단위도 대기하는 효과는 있지만 매번 스코프 생성
-				val users = findAllUsers(pagable) // chunk 1,000
-				user.forEach {
-						launch {
-								// 메세지 전송
-						}
-				}
-		}
+  supervisorScope { // 자식 코루틴 간의 예외 무시. chunk 단위도 대기하는 효과는 있지만 매번 스코프 생성
+      val users = findAllUsers(pagable) // chunk 1,000
+      user.forEach {
+          launch {
+              // 메세지 전송
+          }
+      }
+  }
 }
 ```
 
@@ -92,13 +95,13 @@ while (true) {
 
 ```kotlin
 supervisorScope {
-		val users = findAll()
-		val birthdayList = user.mapNotNull {
-				async {
-						runCatching { getBirthday(it.payAccountId) }
-                .getOrNull()
-				}
-		}.awaitAll()
+  val users = findAll()
+  val birthdayList = user.mapNotNull {
+      async {
+          runCatching { getBirthday(it.payAccountId) }
+              .getOrNull()
+      }
+  }.awaitAll()
 }
 ```
 
@@ -108,29 +111,29 @@ supervisorScope {
 
 ```kotlin
 fun main() = runBlocking {
-    val terms = flowOf("TERM1", "TERM2", "TERM3", "TERM4", "TERM5")
+  val terms = flowOf("TERM1", "TERM2", "TERM3", "TERM4", "TERM5")
 
-    val isAgreed = terms
-        .flatMapMerge(concurrency = 5) { term ->
-            flow { emit(checkAgreement(term)) }.flowOn(Dispatchers.IO)
-        }
+  val isAgreed = terms
+      .flatMapMerge(concurrency = 5) { term ->
+          flow { emit(checkAgreement(term)) }.flowOn(Dispatchers.IO)
+      }
 
-    val a = isAgreed.firstOrNull { it.second } ?: false
+  val a = isAgreed.firstOrNull { it.second } ?: false
 
-    println("${Thread.currentThread().name} 첫 번째 동의한 약관: $a")
+  println("${Thread.currentThread().name} 첫 번째 동의한 약관: $a")
 }
 
 suspend fun checkAgreement(term: String): Pair<String, Boolean> {
-    val sleep = (1000..5000).random().toLong()
-    println("${Thread.currentThread().name} Checking agreement for $term sleep: $sleep")
-    callApi(sleep)
-    val agreed = listOf(true, false).random()
-    println("${Thread.currentThread().name} Agreement for $term: $agreed")
-    return term to agreed
+  val sleep = (1000..5000).random().toLong()
+  println("${Thread.currentThread().name} Checking agreement for $term sleep: $sleep")
+  callApi(sleep)
+  val agreed = listOf(true, false).random()
+  println("${Thread.currentThread().name} Agreement for $term: $agreed")
+  return term to agreed
 }
 
 suspend fun callApi(sleep: Long) = withMDCContext(Dispatchers.IO) {
-    delay(sleep)
+  delay(sleep)
 }
 ```
 
