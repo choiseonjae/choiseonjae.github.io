@@ -1,5 +1,5 @@
 ---
-title: \[코루틴] 코루린 왜 써야할까?
+title: \[코루틴] 코루틴 쉽게 쓰기 (feat. 자주하는 실수들)
 external_url: "https://choiseonjae.notion.site/feat-c2700c2f1f8a498e92b9fedd45e4b723?pvs=74"
 header:
   teaser: /assets/coroutine_teaser.png
@@ -14,7 +14,7 @@ date: 2024-08-31
 last_modified_at: 2024-08-31 
 
 ---
-뭐든지 사용하기 전에는 왜 사용해야 하는지 장,단점을 알고 써야 합니다.
+긴 스터디 끝에 읽으면 좋은 내용들만 정리했습니다.
 
 ## 코루틴이란?
 coroutine → co(cooperative 협력) routine(루틴) 서로 협력하는 루틴이라는 의미입니다.
